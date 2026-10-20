@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Pro — Arquitetura Inteligente Artificial & Consultoria</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        enterprise: {
+                            900: '#061121',
+                            800: '#0B2545',
+                            700: '#111D32',
+                            accent: '#38BDF8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-enterprise-900 text-slate-100 antialiased selection:bg-enterprise-accent selection:text-enterprise-900">
+
+    <!-- HEADER / NAVEGAÇÃO -->
+    <header class="fixed top-0 left-0 w-0 right-0 w-full z-50 bg-enterprise-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl font-bold tracking-wider text-white">POINT <span class="text-enterprise-accent">PRO</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#solucoes" class="hover:text-enterprise-accent transition">Soluções</a>
+                <a href="#consultoria" class="hover:text-enterprise-accent transition">Consultoria & Growth</a>
+                <a href="#metodologia" class="hover:text-enterprise-accent transition">Metodologia PoC</a>
+                <a href="#contacto" class="hover:text-enterprise-accent transition">Contacto</a>
+            </nav>
+            <div>
+                <a href="https://wa.me/" target="_blank" class="bg-enterprise-accent text-enterprise-900 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-sky-400 transition shadow-lg shadow-sky-500/20">
+                    Falar com o CEO
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="pt-32 pb-20 md:pt-44 md:pb-32 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-enterprise-800/40 via-enterprise-900/0 to-transparent pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1.5 px-4 rounded-full bg-slate-800 border border-slate-700 text-enterprise-accent text-xs font-semibold tracking-widest uppercase mb-6">
+                ✦ ARQUITETURA INTELIGENTE ARTIFICIAL & CONSULTORIA CORPORATIVA
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-8">
+                Ecossistemas de Inteligência Artificial sob Medida para Organizações de Alto Desempenho
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Projetamos arquiteturas de IA avançadas, consultoria de gestão e ecossistemas de marketing para eliminar a burocracia documental, automatizar o atendimento omnicanal 24/7 e integrar ERPs (SAP/PRIMAVERA).
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contacto" class="w-full sm:w-auto bg-enterprise-accent text-enterprise-900 px-8 py-4 rounded-xl font-bold hover:bg-sky-400 transition shadow-lg shadow-sky-500/25">
+                    Agendar Demonstração Executiva
+                </a>
+                <a href="https://wa.me/" target="_blank" class="w-full sm:w-auto bg-slate-800 border border-slate-700 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-700 transition">
+                    Falar no WhatsApp com o CEO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DORES DO MERCADO -->
+    <section class="py-20 bg-enterprise-700/30 border-y border-slate-800/60 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-enterprise-accent text-xs font-bold tracking-widest uppercase">// DIAGNÓSTICO OPERACIONAL</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Elimine os Gargalos Ocultos que Travam a Escala da Sua Empresa</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-enterprise-700/50 p-8 rounded-2xl border border-slate-800">
+                    <div class="text-enterprise-accent text-2xl font-bold mb-4">01</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Sobrecarga de Atendimento</h3>
+                    <p class="text-sm text-slate-400">Filas de espera e respostas lentas no suporte interno e externo que afetam a produtividade.</p>
+                </div>
+                <div class="bg-enterprise-700/50 p-8 rounded-2xl border border-slate-800">
+                    <div class="text-enterprise-accent text-2xl font-bold mb-4">02</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Processamento Manual</h3>
+                    <p class="text-sm text-slate-400">Horas gastas a ler e digitar dados de faturas, contratos, extratos e manifestos em PDF.</p>
+                </div>
+                <div class="bg-enterprise-700/50 p-8 rounded-2xl border border-slate-800">
+                    <div class="text-enterprise-accent text-2xl font-bold mb-4">03</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Sistemas Isolados (Silos)</h3>
+                    <p class="text-sm text-slate-400">ERPs legados (PRIMAVERA, SAP, SIGFE) sem comunicação fluida com canais modernos.</p>
+                </div>
+                <div class="bg-enterprise-700/50 p-8 rounded-2xl border border-slate-800">
+                    <div class="text-enterprise-accent text-2xl font-bold mb-4">04</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Compliance e Risco</h3>
+                    <p class="text-sm text-slate-400">Processos de KYC, auditorias e relatórios lentos e altamente propensos a erros humanos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFÓLIO DE SOLUÇÕES (8 MÓDULOS) -->
+    <section id="solucoes" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-enterprise-accent text-xs font-bold tracking-widest uppercase">// PORTFÓLIO ENTERPRISE</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Soluções Modulares de Automação, Consultoria & Growth</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-enterprise-800 p-8 rounded-2xl border border-slate-700 hover:border-enterprise-accent transition">
+                    <h3 class="text-xl font-bold text-white mb-3">1. Consultoria Empresarial</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Auditoria completa de processos, mapeamento de custos ocultos e desenho da estratégia para a transformação digital.</p>
+                </div>
+                <div class="bg-enterprise-800 p-8 rounded-2xl border border-slate-700 hover:border-enterprise-accent transition">
+                    <h3 class="text-xl font-bold text-white mb-3">2. Marketing & IA de Growth</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Funis automatizados de prospecção B2B/B2G, campanhas preditivas e qualificação inteligente de leads.</p>
+                </div>
+                <div class="bg-enterprise-800 p-8 rounded-2xl border border-slate-700 hover:border-enterprise-accent transition">
+                    <h3 class="text-xl font-bold text-white mb-3">3. Atendimento WhatsApp 24/7</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Agentes omnicanal integrados aos sistemas centrais para suporte instantâneo a clientes e colaboradores.</p>
+                </div>
+                <div class="bg-enterprise-800 p-8 rounded-2xl border border-slate-700 hover:border-enterprise-accent transition">
+                    <h3 class="text-xl font-bold text-white mb-3">4. Point DocProcessor (OCR)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Leitura, validação e extração inteligente de dados estruturados em faturas, contratos e cargas.</p>
+                </div>
+                <div class="bg-enterprise-800 p-8 rounded-2xl border border-slate-700 hover:border-enterprise-accent transition">
+                    <h3 class="text-xl font-bold text-white mb-3">5. Conectividade ERPs</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Pontes de integração direta e segura com sistemas como SAP, PRIMAVERA e SIGFE.</p>
+                </div>
+                <div class="bg-enterprise-800 p-8 rounded-2xl border border-slate-700 hover:border-enterprise-accent transition">
+                    <h3 class="text-xl font-bold text-white mb-3">6. Financeiro, Jurídico & KYC</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Análise automatizada de risco de crédito, verificação documental estrita e validação contratual.</p>
+                </div>
+                <div class="bg-enterprise-800 p-8 rounded-2xl border border-slate-700 hover:border-enterprise-accent transition">
+                    <h3 class="text-xl font-bold text-white mb-3">7. Recrutamento Preditivo</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Triagem massiva de currículos com cálculo de compatibilidade (Score %) e suporte integral a RH.</p>
+                </div>
+                <div class="bg-enterprise-800 p-8 rounded-2xl border border-slate-700 hover:border-enterprise-accent transition md:col-span-2 lg:col-span-2">
+                    <h3 class="text-xl font-bold text-white mb-3">8. Governança e Nuvem Privada (VPC)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Confinamento absoluto dos dados corporativos em ambiente isolado sob rigorosa conformidade regulatória (RGPD / APD).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METODOLOGIA -->
+    <section id="metodologia" class="py-20 bg-enterprise-700/30 border-y border-slate-800/60 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-enterprise-accent text-xs font-bold tracking-widest uppercase">// METODOLOGIA PROVADA</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Implementação Ágil, Controlada e Sem Risco</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-enterprise-accent text-enterprise-900 rounded-xl font-bold text-lg flex items-center justify-center mx-auto mb-4">1</div>
+                    <h3 class="font-bold text-white mb-2">Diagnóstico</h3>
+                    <p class="text-xs text-slate-400">Mapeamento de gargalos e custos operacionais.</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-enterprise-accent text-enterprise-900 rounded-xl font-bold text-lg flex items-center justify-center mx-auto mb-4">2</div>
+                    <h3 class="font-bold text-white mb-2">Treino de IA</h3>
+                    <p class="text-xs text-slate-400">Parametrização com as políticas internas.</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-enterprise-accent text-enterprise-900 rounded-xl font-bold text-lg flex items-center justify-center mx-auto mb-4">3</div>
+                    <h3 class="font-bold text-white mb-2">Projeto Piloto (PoC)</h3>
+                    <p class="text-xs text-slate-400">Validação controlada em 30 dias num setor.</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-enterprise-accent text-enterprise-900 rounded-xl font-bold text-lg flex items-center justify-center mx-auto mb-4">4</div>
+                    <h3 class="font-bold text-white mb-2">Expansão</h3>
+                    <p class="text-xs text-slate-400">Escala gradual para os restantes departamentos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO / RODAPÉ -->
+    <footer id="contacto" class="py-20 px-6 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para Elevar o Padrão Tecnológico da Sua Organização?</h2>
+            <p class="text-slate-300 mb-8 max-w-xl mx-auto">Fale diretamente com a nossa liderança executiva e agende uma sessão de consultoria estratégica personalizada.</p>
+            <div class="flex justify-center gap-4 mb-16">
+                <a href="https://wa.me/" target="_blank" class="bg-enterprise-accent text-enterprise-900 px-8 py-4 rounded-xl font-bold hover:bg-sky-400 transition">
+                    Falar com o CEO no WhatsApp
+                </a>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-sm text-slate-500">
+                <p class="font-semibold text-slate-400 mb-1">Guelmer M B Dos Santos — CEO & Founder</p>
+                <p class="mb-2">Point Pro — Arquitetura Inteligente Artificial, Consultoria & Growth</p>
+                <p>Luanda, Angola | Lisboa, Portugal • © 2026 Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
