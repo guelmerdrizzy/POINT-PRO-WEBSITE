@@ -188,12 +188,53 @@
         </div>
     </section>
 
-    <!-- CONTACTO / RODAPÉ -->
+    <!-- SECÇÃO DE CONTACTO & RODAPÉ -->
     <footer id="contacto" class="py-20 px-6 border-t border-slate-800 bg-enterprise-700/20">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para Elevar a Eficiência da Sua Organização?</h2>
-            <p class="text-slate-300 mb-8 max-w-xl mx-auto">Agende uma sessão estratégica de consultoria com a nossa equipa através dos canais de redirecionamento automático abaixo.</p>
+            <p class="text-slate-300 mb-8 max-w-xl mx-auto">Agende uma sessão estratégica de consultoria com a nossa equipa através dos canais abaixo.</p>
             
-            <!-- BOTÕES DE CONTACTO DIRETO COM REDIRECIONAMENTO AUTOMÁTICO (SEM MOSTRAR NÚMEROS) -->
+            <!-- BOTÕES DE CONTACTO DIRETO (REDIRECIONAMENTO AUTOMÁTICO, SEM NÚMEROS OU EMAILS VISÍVEIS) -->
             <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-                <a href="
+                <a href="https://wa.me/244953896320?text=Olá,%20quero%20agendar%20uma%20reunião%20de%20consultoria%20com%20a%20Point%20Pro." target="_blank" class="bg-enterprise-accent text-enterprise-900 px-8 py-4 rounded-xl font-bold hover:bg-sky-400 transition flex items-center justify-center space-x-2 shadow-lg shadow-sky-500/20">
+                    <span>💬 Falar no WhatsApp</span>
+                </a>
+                <a href="mailto:pointpro1003@gmail.com?subject=Consultoria%20Executiva%20Point%20Pro" class="bg-slate-800 border border-slate-700 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-700 transition flex items-center justify-center space-x-2">
+                    <span>✉️ Enviar E-mail Institucional</span>
+                </a>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-sm text-slate-500">
+                <p class="font-semibold text-slate-400 mb-1">Point Pro — Consultoria Estratégica & Inovação</p>
+                <p class="mb-2">Consultoria Empresarial, Estratégia de Negócio & Soluções Tecnológicas</p>
+                <p>Luanda, Angola | Lisboa, Portugal</p>
+                <p class="mt-4 text-xs text-slate-600">Uma marca do <strong class="text-slate-400">Grupo GT</strong> • © 2026 Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WIDGET FLUTUANTE DE ATENDIMENTO 24/7 (AGENTE IA) -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Janela de Chat (Inicia oculta, abre ao clicar) -->
+        <div id="chat-window" class="hidden w-80 sm:w-96 bg-enterprise-800 border border-slate-700 rounded-2xl shadow-2xl mb-4 overflow-hidden transition-all duration-300">
+            <div class="bg-enterprise-900 px-4 py-3 flex items-center justify-between border-b border-slate-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
+                    <span class="text-xs font-bold text-white">Agente Virtual Point Pro (24/7)</span>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-white text-sm font-bold">✕</button>
+            </div>
+            <div class="p-4 space-y-3 text-xs max-h-72 overflow-y-auto">
+                <div class="bg-slate-700/50 p-3 rounded-xl text-slate-200">
+                    Olá! Sou o assistente virtual da Point Pro. Como posso ajudar na consultoria ou automação da sua empresa hoje?
+                </div>
+            </div>
+            <div class="p-3 bg-enterprise-900 border-t border-slate-700">
+                <a href="https://wa.me/244953896320?text=Olá,%20falei%20com%20o%20agente%20virtual%20no%20site." target="_blank" class="block w-full bg-enterprise-accent text-enterprise-900 text-center py-2.5 rounded-xl font-bold hover:bg-sky-400 transition text-xs">
+                    💬 Continuar conversa no WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- Botão Flutuante do Agente -->
+        <button onclick="toggleChat()" class="
