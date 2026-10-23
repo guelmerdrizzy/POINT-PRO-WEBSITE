@@ -213,26 +213,32 @@
         </div>
     </footer>
 
-    <!-- WIDGET FLUTUANTE DE ATENDIMENTO 24/7 (RESPONSIVO & FUNCIONAL) -->
+    <!-- WIDGET FLUTUANTE DE ATENDIMENTO 24/7 (INTERATIVO COM CAIXA DE TEXTO) -->
     <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[99999] flex flex-col items-end">
-        <!-- Janela de Chat -->
-        <div id="chat-window" class="hidden w-[calc(100vw-2rem)] sm:w-96 bg-enterprise-800 border border-slate-700 rounded-2xl shadow-2xl mb-4 overflow-hidden transition-all duration-200">
-            <div class="bg-enterprise-900 px-4 py-3 flex items-center justify-between border-b border-slate-700">
+        <!-- Janela de Chat Interativa -->
+        <div id="chat-window" class="hidden w-[calc(100vw-2rem)] sm:w-96 bg-enterprise-800 border border-slate-700 rounded-2xl shadow-2xl mb-4 overflow-hidden transition-all duration-200 flex flex-col h-[400px]">
+            <!-- Cabeçalho do Chat -->
+            <div class="bg-enterprise-900 px-4 py-3 flex items-center justify-between border-b border-slate-700 shrink-0">
                 <div class="flex items-center space-x-2">
                     <div class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
                     <span class="text-xs font-bold text-white">Agente Virtual Point Pro (24/7)</span>
                 </div>
                 <button id="close-chat" class="text-slate-400 hover:text-white text-sm font-bold p-1 cursor-pointer">✕</button>
             </div>
-            <div class="p-4 space-y-3 text-xs max-h-60 sm:max-h-72 overflow-y-auto">
-                <div class="bg-slate-700/50 p-3 rounded-xl text-slate-200">
+
+            <!-- Corpo de Mensagens -->
+            <div id="chat-messages" class="p-4 space-y-3 text-xs flex-1 overflow-y-auto">
+                <div class="bg-slate-700/50 p-3 rounded-xl text-slate-200 max-w-[85%]">
                     Olá! Sou o assistente virtual da Point Pro. Como posso ajudar na consultoria ou automação da sua empresa hoje?
                 </div>
             </div>
-            <div class="p-3 bg-enterprise-900 border-t border-slate-700">
-                <a href="https://wa.me/244953896320?text=Olá,%20falei%20com%20o%20agente%20virtual%20no%20site." target="_blank" class="block w-full bg-enterprise-accent text-enterprise-900 text-center py-2.5 rounded-xl font-bold hover:bg-sky-400 transition text-xs">
-                    💬 Continuar conversa no WhatsApp
-                </a>
+
+            <!-- Caixa de Entrada para Conversar -->
+            <div class="p-3 bg-enterprise-900 border-t border-slate-700 shrink-0">
+                <form id="chat-form" class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Escreva a sua mensagem..." class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-enterprise-accent">
+                    <button type="submit" class="bg-enterprise-accent text-enterprise-900 px-4 py-2 rounded-xl font-bold hover:bg-sky-400 transition text-xs">Enviar</button>
+                </form>
             </div>
         </div>
 
@@ -248,14 +254,44 @@
             const chatWindow = document.getElementById('chat-window');
             const chatToggleBtn = document.getElementById('chat-toggle-btn');
             const closeChatBtn = document.getElementById('close-chat');
+            const chatForm = document.getElementById('chat-form');
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
 
             function toggleChat(e) {
                 if (e) e.preventDefault();
                 chatWindow.classList.toggle('hidden');
+                if (!chatWindow.classList.contains('hidden')) {
+                    chatInput.focus();
+                }
             }
 
             if (chatToggleBtn) chatToggleBtn.addEventListener('click', toggleChat);
             if (closeChatBtn) closeChatBtn.addEventListener('click', toggleChat);
+
+            // Lógica de envio e resposta interativa do agente
+            chatForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const text = chatInput.value.trim();
+                if (!text) return;
+
+                // Adiciona mensagem do utilizador
+                const userMsg = document.createElement('div');
+                userMsg.className = 'bg-enterprise-accent text-enterprise-900 p-3 rounded-xl font-medium max-w-[85%] ml-auto';
+                userMsg.textContent = text;
+                chatMessages.appendChild(userMsg);
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Resposta simulada do Agente 24/7 após pequeno delay
+                setTimeout(function() {
+                    const agentMsg = document.createElement('div');
+                    agentMsg.className = 'bg-slate-700/50 p-3 rounded-xl text-slate-200 max-w-[85%]';
+                    agentMsg.innerHTML = `Obrigado pelo seu contacto! Para darmos seguimento à sua solicitação de forma personalizada, clique no botão abaixo para continuar diretamente no nosso WhatsApp:<br><br><a href="https://wa.me/244953896320?text=Olá,%20estava%20a%20conversar%20com%20o%20agente%20no%20site." target="_blank" class="inline-block bg-enterprise-accent text-enterprise-900 font-bold px-3 py-1.5 rounded-lg mt-1">💬 Abrir no WhatsApp</a>`;
+                    chatMessages.appendChild(agentMsg);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 800);
+            });
         });
     </script>
 
