@@ -213,9 +213,9 @@
         </div>
     </footer>
 
-    <!-- WIDGET FLUTUANTE DE ATENDIMENTO 24/7 (CORRIGIDO E TOTALMENTE FUNCIONAL) -->
+    <!-- WIDGET FLUTUANTE DE ATENDIMENTO 24/7 (INTELIGENTE COM RESPOSTAS CONTEXTUAIS) -->
     <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[99999] flex flex-col items-end">
-        <!-- Janela de Chat com Altura Fixa Adequada -->
+        <!-- Janela de Chat -->
         <div id="chat-window" class="hidden w-[calc(100vw-2rem)] sm:w-96 bg-enterprise-800 border border-slate-700 rounded-2xl shadow-2xl mb-4 overflow-hidden transition-all duration-200 flex flex-col h-[420px]">
             <!-- Cabeçalho do Chat -->
             <div class="bg-enterprise-900 px-4 py-3 flex items-center justify-between border-b border-slate-700 shrink-0">
@@ -233,7 +233,7 @@
                 </div>
             </div>
 
-            <!-- Caixa de Entrada para Conversar (Sempre visível em baixo) -->
+            <!-- Caixa de Entrada para Conversar -->
             <div class="p-3 bg-enterprise-900 border-t border-slate-700 shrink-0">
                 <form id="chat-form" class="flex gap-2">
                     <input type="text" id="chat-input" placeholder="Escreva a sua mensagem..." class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-enterprise-accent">
@@ -269,25 +269,38 @@
             if (chatToggleBtn) chatToggleBtn.addEventListener('click', toggleChat);
             if (closeChatBtn) closeChatBtn.addEventListener('click', toggleChat);
 
-            // Lógica de envio e resposta interativa do agente
+            // Respostas inteligentes baseadas no que o utilizador escreve
             chatForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const text = chatInput.value.trim();
+                const rawText = chatInput.value.trim();
+                const text = rawText.toLowerCase();
                 if (!text) return;
 
                 // Adiciona mensagem do utilizador
                 const userMsg = document.createElement('div');
                 userMsg.className = 'bg-enterprise-accent text-enterprise-900 p-3 rounded-xl font-medium max-w-[85%] ml-auto';
-                userMsg.textContent = text;
+                userMsg.textContent = rawText;
                 chatMessages.appendChild(userMsg);
                 chatInput.value = '';
                 chatMessages.scrollTop = chatMessages.scrollHeight;
 
-                // Resposta simulada do Agente 24/7 com redirecionamento para o WhatsApp
+                // Processamento da resposta inteligente
                 setTimeout(function() {
+                    let reply = "Obrigado pela sua questão. Para darmos seguimento com uma proposta executiva adaptada à sua organização, clique abaixo para falar diretamente connosco:";
+
+                    if (text.includes('pequena') || text.includes('empresa') || text.includes('pme') || text.includes('negócio') || text.includes('pequenas')) {
+                        reply = "Sim! Trabalhamos com organizações de diversas dimensões (incluindo PMEs e grandes empresas), adaptando a nossa consultoria estratégica e soluções modulares à realidade de cada cliente.";
+                    } else if (text.includes('consultoria') || text.includes('serviço') || text.includes('fazem') || text.includes('especialidade')) {
+                        reply = "A nossa especialidade central é a Consultoria Estratégica, auditoria de processos e desenho de roadmaps operacionais, complementada por soluções modulares de automação e IA.";
+                    } else if (text.includes('preço') || text.includes('custo') || text.includes('quanto') || text.includes('valor')) {
+                        reply = "Os nossos projetos são dimensionados à medida através de uma análise inicial e de um Projeto Piloto (PoC) de 30 dias. Fale connosco no WhatsApp para agendar uma sessão.";
+                    } else if (text.includes('olá') || text.includes('boa tarde') || text.includes('bom dia') || text.includes('boa noite')) {
+                        reply = "Olá! Como posso ajudar a otimizar os processos ou a estratégia da sua organização hoje?";
+                    }
+
                     const agentMsg = document.createElement('div');
                     agentMsg.className = 'bg-slate-700/50 p-3 rounded-xl text-slate-200 max-w-[85%]';
-                    agentMsg.innerHTML = `Obrigado pelo seu contacto! Para darmos seguimento à sua solicitação de forma personalizada, clique no botão abaixo para continuar diretamente no nosso WhatsApp:<br><br><a href="https://wa.me/244953896320?text=Olá,%20estava%20a%20conversar%20com%20o%20agente%20no%20site." target="_blank" class="inline-block bg-enterprise-accent text-enterprise-900 font-bold px-3 py-1.5 rounded-lg mt-1">💬 Abrir no WhatsApp</a>`;
+                    agentMsg.innerHTML = `${reply}<br><br><a href="https://wa.me/244953896320?text=Olá,%20estava%20a%20conversar%20com%20o%20agente%20sobre:%20${encodeURIComponent(rawText)}" target="_blank" class="inline-block bg-enterprise-accent text-enterprise-900 font-bold px-3 py-1.5 rounded-lg mt-1">💬 Continuar no WhatsApp</a>`;
                     chatMessages.appendChild(agentMsg);
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 }, 800);
