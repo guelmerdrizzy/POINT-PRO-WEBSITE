@@ -213,7 +213,7 @@
         </div>
     </footer>
 
-    <!-- WIDGET FLUTUANTE DE ATENDIMENTO 24/7 (INTELIGENTE COM RESPOSTAS CONTEXTUAIS) -->
+    <!-- WIDGET FLUTUANTE DE ATENDIMENTO 24/7 (INTELIGENTE E CORRIGIDO) -->
     <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[99999] flex flex-col items-end">
         <!-- Janela de Chat -->
         <div id="chat-window" class="hidden w-[calc(100vw-2rem)] sm:w-96 bg-enterprise-800 border border-slate-700 rounded-2xl shadow-2xl mb-4 overflow-hidden transition-all duration-200 flex flex-col h-[420px]">
@@ -269,7 +269,7 @@
             if (chatToggleBtn) chatToggleBtn.addEventListener('click', toggleChat);
             if (closeChatBtn) closeChatBtn.addEventListener('click', toggleChat);
 
-            // Respostas inteligentes baseadas no que o utilizador escreve
+            // Respostas Inteligentes Contextuais aprimoradas
             chatForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const rawText = chatInput.value.trim();
@@ -284,23 +284,23 @@
                 chatInput.value = '';
                 chatMessages.scrollTop = chatMessages.scrollHeight;
 
-                // Processamento da resposta inteligente
+                // Processamento de respostas detalhadas baseadas no texto
                 setTimeout(function() {
-                    let reply = "Obrigado pela sua questão. Para darmos seguimento com uma proposta executiva adaptada à sua organização, clique abaixo para falar diretamente connosco:";
+                    let reply = "Compreendo perfeitamente. Para darmos seguimento imediato com uma proposta executiva adaptada à sua organização, clique abaixo para falar diretamente com a nossa equipa:";
 
-                    if (text.includes('pequena') || text.includes('empresa') || text.includes('pme') || text.includes('negócio') || text.includes('pequenas')) {
-                        reply = "Sim! Trabalhamos com organizações de diversas dimensões (incluindo PMEs e grandes empresas), adaptando a nossa consultoria estratégica e soluções modulares à realidade de cada cliente.";
-                    } else if (text.includes('consultoria') || text.includes('serviço') || text.includes('fazem') || text.includes('especialidade')) {
-                        reply = "A nossa especialidade central é a Consultoria Estratégica, auditoria de processos e desenho de roadmaps operacionais, complementada por soluções modulares de automação e IA.";
-                    } else if (text.includes('preço') || text.includes('custo') || text.includes('quanto') || text.includes('valor')) {
-                        reply = "Os nossos projetos são dimensionados à medida através de uma análise inicial e de um Projeto Piloto (PoC) de 30 dias. Fale connosco no WhatsApp para agendar uma sessão.";
-                    } else if (text.includes('olá') || text.includes('boa tarde') || text.includes('bom dia') || text.includes('boa noite')) {
-                        reply = "Olá! Como posso ajudar a otimizar os processos ou a estratégia da sua organização hoje?";
+                    if (text.includes('pequena') || text.includes('pme') || text.includes('negócio') || text.includes('pequenas') || text.includes('start')) {
+                        reply = "Sim, trabalhamos com organizações de todas as dimensões (PMEs e grandes empresas). A nossa consultoria estratégica e soluções modulares são totalmente adaptadas à escala e aos objetivos específicos do seu negócio.";
+                    } else if (text.includes('consultoria') || text.includes('serviço') || text.includes('fazem') || text.includes('especialidade') || text.includes('trabalho')) {
+                        reply = "A nossa especialidade central é a Consultoria Estratégica. Fazemos auditorias profundas aos vossos processos operacionais, mapeamos gargalos e desenhamos roadmaps de eficiência para empresas em Angola e Portugal.";
+                    } else if (text.includes('preço') || text.includes('custo') || text.includes('quanto') || text.includes('valor')  || text.includes('orçamento')) {
+                        reply = "Os nossos projetos de consultoria e soluções modulares são dimensionados à medida após um diagnóstico inicial e um Projeto Piloto (PoC) de 30 dias. Podemos agendar uma sessão para avaliar o vosso caso.";
+                    } else if (text.includes('olá') || text.includes('ola') || text.includes('boa') || text.includes('bom') || text.includes('ajuda')) {
+                        reply = "Olá! É um prazer falar connosco. Como podemos ajudar a otimizar a estratégia ou os processos operacionais da sua empresa hoje?";
                     }
 
                     const agentMsg = document.createElement('div');
                     agentMsg.className = 'bg-slate-700/50 p-3 rounded-xl text-slate-200 max-w-[85%]';
-                    agentMsg.innerHTML = `${reply}<br><br><a href="https://wa.me/244953896320?text=Olá,%20estava%20a%20conversar%20com%20o%20agente%20sobre:%20${encodeURIComponent(rawText)}" target="_blank" class="inline-block bg-enterprise-accent text-enterprise-900 font-bold px-3 py-1.5 rounded-lg mt-1">💬 Continuar no WhatsApp</a>`;
+                    agentMsg.innerHTML = `${reply}<br><br><a href="https://wa.me/244953896320?text=Olá,%20estava%20a%20conversar%20com%20o%20agente%20no%20site%20sobre:%20${encodeURIComponent(rawText)}" target="_blank" class="inline-block bg-enterprise-accent text-enterprise-900 font-bold px-3 py-1.5 rounded-lg mt-1">💬 Continuar no WhatsApp</a>`;
                     chatMessages.appendChild(agentMsg);
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 }, 800);
